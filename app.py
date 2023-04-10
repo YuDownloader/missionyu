@@ -27,7 +27,7 @@ file_extension='mp4').get_highest_resolution()
        
         video.download(output_path=path)
 
-        return send_file(path, as_attachment=True)
+        return send_file( video,as_attachment=True,mimetype='video/mp4',download_name='video.mp4')
 
 
 
