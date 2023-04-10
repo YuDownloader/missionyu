@@ -19,11 +19,16 @@ def download_video():
 
 
         video_url = request.form['video_url']
+        path='Downloads'
 
         yt = YouTube(video_url)
         video = yt.streams.filter(progressive=True,
 file_extension='mp4').get_highest_resolution()
-        video.download()
+       
+        video.download(output_path=path)
+
+        return send_file(path, as_attachment=True)
+
 
 
 
